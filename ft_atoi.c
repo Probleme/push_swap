@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 21:39:53 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/07 19:07:03 by ataouaf          ###   ########.fr       */
+/*   Created: 2023/01/17 02:08:15 by ataouaf           #+#    #+#             */
+/*   Updated: 2023/02/08 23:57:08 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_lst **stack)
+long	ft_atoi(const char *str)
 {
-	t_lst	*lsn;
+	int					i;
+	unsigned long long	r;
+	int					s;
 
-	if (!(*stack) || !(*stack)->next)
-		return ;
-	lsn = *stack;
-	while (lsn->next)
-		lsn = lsn->next;
-	lsn->next = *stack;
-	*stack = (*stack)->next;
-	lsn->next->next = NULL;
-}
-
-void	ra(t_lst **stack)
-{
-	rotate(stack);
-	printf("ra\n");
-}
-
-void	rb(t_lst **stack)
-{
-	rotate(stack);
-	printf("rb");
-}
-
-void	rr(t_lst **stacka, t_lst **stackb)
-{
-	rotate(stacka);
-	rotate(stackb);
-	printf("rr\n");
+	i = 0;
+	r = 0;
+	s = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			s *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		r = r * 10 + str[i] - '0';
+		i++;
+	}
+	return (r * s);
 }

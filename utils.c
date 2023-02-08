@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 21:39:53 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/07 19:07:03 by ataouaf          ###   ########.fr       */
+/*   Created: 2023/02/08 00:11:28 by ataouaf           #+#    #+#             */
+/*   Updated: 2023/02/08 23:14:04 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_lst **stack)
+int	ft_error(char *msg)
 {
-	t_lst	*lsn;
-
-	if (!(*stack) || !(*stack)->next)
-		return ;
-	lsn = *stack;
-	while (lsn->next)
-		lsn = lsn->next;
-	lsn->next = *stack;
-	*stack = (*stack)->next;
-	lsn->next->next = NULL;
+	ft_putendl_fd(msg, STDERR_FILENO);
+	return 0;
 }
 
-void	ra(t_lst **stack)
+void	ft_free(char **str)
 {
-	rotate(stack);
-	printf("ra\n");
-}
+	int	i;
 
-void	rb(t_lst **stack)
-{
-	rotate(stack);
-	printf("rb");
-}
-
-void	rr(t_lst **stacka, t_lst **stackb)
-{
-	rotate(stacka);
-	rotate(stackb);
-	printf("rr\n");
+	i = 0;
+	while(str[i])
+		i++;
+	while(i >= 0)
+		free(str[i--]);
+	// free(str);
 }

@@ -1,44 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 17:45:12 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/07 19:11:06 by ataouaf          ###   ########.fr       */
+/*   Created: 2023/02/08 00:16:59 by ataouaf           #+#    #+#             */
+/*   Updated: 2023/02/08 00:17:11 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_lst **stack)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	content;
-
-	if (!(*stack)->next || !(*stack))
-		return ;
-	content = 0;
-	content = (*stack)->next->content;
-	(*stack)->next->content = (*stack)->content;
-	(*stack)->content = content;
-}
-
-void	sa(t_lst **stack)
-{
-	swap(stack);
-	printf("sa\n");
-}
-
-void	sb(t_lst **stack)
-{
-	swap(stack);
-	printf("sb\n");
-}
-
-void	ss(t_lst **stacka, t_lst **stackb)
-{
-	swap(stacka);
-	swap(stackb);
-	printf("ss\n");
+	write(fd, &c, 1);
 }

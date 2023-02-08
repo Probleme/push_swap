@@ -5,34 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 01:22:38 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/04 20:19:17 by ataouaf          ###   ########.fr       */
+/*   Created: 2023/02/06 22:18:01 by ataouaf           #+#    #+#             */
+/*   Updated: 2023/02/07 19:14:31 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_lst **stacka, t_lst **stackb)
+static void	push(t_lst **stack, int content)
+{
+	t_lst	*node;
+
+	node = malloc(sizeof(t_lst));
+	node->content = content;
+	node->next = *stack;
+	*stack = node;
+}
+
+static int	pop(t_lst **stack)
 {
 	t_lst	*tmp;
+	int		pop;
 
-	if (!stackb)
-		return ;
-	tmp = (*stackb)->next;
-	lst_addfront(stacka, *stackb);
-	*stackb = tmp;
-	if (*stackb)
-		(*stackb)->prev = NULL;
+	tmp = *stack;
+	if (*stack == NULL)
+		return (printf("Stack is Empty\n"));
+	pop = tmp->content;
+	(*stack) = tmp->next;
+	free(tmp);
+	return (pop);
 }
 
 void	pa(t_lst **stacka, t_lst **stackb)
 {
-	push(stacka, stackb);
-	printf("pa\n");
+	int	popped;
+
+	if (*stacka == NULL)
+		return ;
+	popped = pop(stackb);
+	push(stacka, popped);
 }
 
 void	pb(t_lst **stacka, t_lst **stackb)
 {
-	push(stackb, stacka);
-	printf("pb\n");
+	int	popped;
+
+	if (*stackb == NULL)
+		return ;
+	popped = pop(stacka);
+	push(stackb, popped);
 }
