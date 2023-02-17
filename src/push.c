@@ -10,56 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-
-// static void	push(t_lst **stack, int content)
-// {
-// 	t_lst	*node;
-
-// 	node = malloc(sizeof(t_lst));
-// 	node->content = content;
-// 	node->next = *stack;
-// 	*stack = node;
-// }
-
-// static int	pop(t_lst **stack)
-// {
-// 	t_lst	*tmp;
-// 	int		pop;
-
-// 	tmp = *stack;
-// 	if (ft_lstsize(*stack) == 0)
-// 		return (printf("Stack is Empty\n"));
-// 	pop = tmp->content;
-// 	(*stack) = tmp->next;
-// 	free(tmp);
-// 	return (pop);
-// }
-
-// int	pa(t_lst **stacka, t_lst **stackb)
-// {
-// 	int	popped;
-
-// 	// if (ft_lstsize(*stacka) < 2)
-// 	// 	return (-1);
-// 	popped = pop(stackb);
-// 	push(stacka, popped);
-// 	ft_putendl_fd("pa", 1);
-// 	return (0);
-// }
-
-// int	pb(t_lst **stacka, t_lst **stackb)
-// {
-// 	int	popped;
-
-// 	// if (ft_lstsize(*stacka) < 2)
-// 	// 	return -1;
-// 	popped = pop(stacka);
-// 	push(stackb, popped);
-// 	ft_putendl_fd("pb", 1);
-// 	return (0);
-// }
+#include "../inc/push_swap.h"
 
 int	push(t_lst **stack_to, t_lst **stack_from)
 {

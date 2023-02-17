@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 t_lst   *ft_newlst(int content)
 {
@@ -45,21 +45,17 @@ t_lst	*ft_lstlast(t_lst *stack)
 	return (tmp);
 }
 
-void	ft_lstadd_back(t_lst **stack, t_lst *liist)
+void	ft_lstadd_back(t_lst **stack, t_lst *new)
 {
 	t_lst *tmp;
 
-	if (*stack)
+	if (!*stack)
 	{
-		tmp = ft_lstlast(*stack);
-		tmp->next = liist;
-		liist->next = NULL;
+		*stack = new;
+		return ;
 	}
-	else
-	{
-		*stack = tmp;
-		(*stack)->next = NULL;
-	}
+	tmp = ft_lstlast(*stack);
+	tmp->next = new;
 }
 
 int	ft_lstsize(t_lst *stack)

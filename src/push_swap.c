@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 void	initstack(t_lst **stack, char **argv, int argc)
 {
@@ -19,6 +19,7 @@ void	initstack(t_lst **stack, char **argv, int argc)
 	int		i;
 
 	i = 0;
+	new = *stack;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
@@ -26,6 +27,7 @@ void	initstack(t_lst **stack, char **argv, int argc)
 		i = 1;
 		args = argv;
 	}
+
 	while(args[i])
 	{
 		new = ft_newlst(ft_atoi(args[i]));

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	reverserotate(t_lst **head)
 {
@@ -49,7 +49,7 @@ int	rrb(t_lst **stack)
 
 int	rrr(t_lst **stacka, t_lst **stackb)
 {
-	if ((ft_lstsize(*stacka) < 2 )|| (ft_lstsize(*stackb)))
+	if ((ft_lstsize(*stacka) < 2 ) || (ft_lstsize(*stackb) < 2))
 		return (-1);
 	reverserotate(stacka);
 	reverserotate(stackb);

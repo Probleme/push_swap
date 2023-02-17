@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 static int	ft_doubles(char **argv, int tmp, int i)
 {
@@ -62,7 +62,7 @@ int	ft_check_args(int argc, char **argv)
 			return (ft_error("ERROR"));
 		i++;
 	}
-	if (argc == 2)
-		ft_free(args);
+	// if (argc == 2)
+	// 	ft_free(args);
 	return 1;
 }

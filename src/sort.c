@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	find_largest_num(t_lst *stack)
 {
@@ -43,11 +43,18 @@ int	find_position(t_lst *stack)
 		stack = stack->next;
 		lenght++;
 	}
-	if (pos <= lenght / 2)
+	if (pos < lenght / 2)
 		return 0;
 	else
 		return 1;
 }
+
+int	isTop(t_lst *head, t_lst *node) {
+    if (head == node)
+        return 1;
+    return 0;
+}
+
 
 void	sort(t_lst **stacka, t_lst **stackb)
 {
@@ -55,7 +62,7 @@ void	sort(t_lst **stacka, t_lst **stackb)
 	int		j;
 
 	i = 0;
-	j = 30;
+	j = 19;
 	while((*stacka))
 	{
 		if ((*stacka)->index <= i)
@@ -73,19 +80,26 @@ void	sort(t_lst **stacka, t_lst **stackb)
 			ra(stacka);
 	}
 	int pos = 0;
+	int max = 0;
+	int top = 0;
 	while (*stackb)
 	{
+		max = find_largest_num(*stackb);
 		pos = find_position(*stackb);
+		top= isTop(*stackb, *stackb);
 		if (pos == 0)
 		{
-			rb(stackb);
-			pa(stacka,stackb);
-
+			if (max == (*stackb)->index && top == 1)
+				pa(stacka,stackb);
+			else
+				rb(stackb);
 		}
 		else if (pos == 1)
 		{
-			rrb(stackb);
-			pa(stacka,stackb);
+			if (max == (*stackb)->index && top == 1)
+				pa(stacka,stackb);
+			else
+				rrb(stackb);
 		}
 	}
 }
