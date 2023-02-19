@@ -55,6 +55,33 @@ int	isTop(t_lst *head, t_lst *node) {
     return 0;
 }
 
+void	sort_1(t_lst **stacka, t_lst **stackb)
+{
+	int pos;
+	int max;
+
+	pos = 0;
+	max = 0;
+	while (*stackb)
+	{
+		max = find_largest_num(*stackb);
+		pos = find_position(*stackb);
+		if (pos == 0)
+		{
+			if (max == (*stackb)->index && isTop(*stackb, *stackb) == 1)
+				pa(stacka,stackb);
+			else
+				rb(stackb);
+		}
+		else if (pos == 1)
+		{
+			if (max == (*stackb)->index && isTop(*stackb, *stackb) == 1)
+				pa(stacka,stackb);
+			else
+				rrb(stackb);
+		}
+	}
+}
 
 void	sort(t_lst **stacka, t_lst **stackb)
 {
@@ -79,27 +106,5 @@ void	sort(t_lst **stacka, t_lst **stackb)
 		else
 			ra(stacka);
 	}
-	int pos = 0;
-	int max = 0;
-	int top = 0;
-	while (*stackb)
-	{
-		max = find_largest_num(*stackb);
-		pos = find_position(*stackb);
-		top= isTop(*stackb, *stackb);
-		if (pos == 0)
-		{
-			if (max == (*stackb)->index && top == 1)
-				pa(stacka,stackb);
-			else
-				rb(stackb);
-		}
-		else if (pos == 1)
-		{
-			if (max == (*stackb)->index && top == 1)
-				pa(stacka,stackb);
-			else
-				rrb(stackb);
-		}
-	}
+	sort_1(stacka,stackb);
 }

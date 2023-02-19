@@ -12,29 +12,29 @@
 
 #include "../inc/push_swap.h"
 
-int	push(t_lst **stack_to, t_lst **stack_from)
+int	push(t_lst **stacka, t_lst **stackb)
 {
 	t_lst	*tmp;
-	t_lst	*head_to;
-	t_lst	*head_from;
+	t_lst	*heada;
+	t_lst	*headb;
 
-	if (ft_lstsize(*stack_from) == 0)
+	if (ft_lstsize(*stackb) == 0)
 		return (-1);
-	head_to = *stack_to;
-	head_from = *stack_from;
-	tmp = head_from;
-	head_from = head_from->next;
-	*stack_from = head_from;
-	if (!head_to)
+	heada = *stacka;
+	headb = *stackb;
+	tmp = headb;
+	headb = headb->next;
+	*stackb = headb;
+	if (!heada)
 	{
-		head_to = tmp;
-		head_to->next = NULL;
-		*stack_to = head_to;
+		heada = tmp;
+		heada->next = NULL;
+		*stacka = heada;
 	}
 	else
 	{
-		tmp->next = head_to;
-		*stack_to = tmp;
+		tmp->next = heada;
+		*stacka = tmp;
 	}
 	return (0);
 }

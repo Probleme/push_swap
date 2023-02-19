@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-int	get_min(t_lst **stack, int val)
+int	get_min(t_lst **stack)
 {
 	t_lst	*head;
 	int		min;
@@ -22,7 +22,7 @@ int	get_min(t_lst **stack, int val)
 	while(head->next)
 	{
 		head = head->next;
-		if ((head->index < min) && (head->index != val))
+		if ((head->index < min) && (head->index != -1))
 			min = head->index;
 	}
 	return (min);
@@ -30,37 +30,14 @@ int	get_min(t_lst **stack, int val)
 
 void	sort_3(t_lst **stack)
 {
-	t_lst	*head;
-	int		min;
-	int		next_min;
-
-	head = *stack;
-	min = get_min(stack, -1);
-	next_min = get_min(stack, min);
-	if (is_sorted(stack))
-		return ;
-	if((head->index == min) && (head->next->index != next_min))
+	while (is_sorted(stack) != 1)
 	{
-		ra(stack);
-		sa(stack);
-		rra(stack);
-	}
-	else if (head->index == next_min)
-	{
-		if (head->next->index == min)
+		if (((*stack)->index > (*stack)->next->index) && ((*stack)->index < (*stack)->next->next->index))
 			sa(stack);
-		else
-			rra(stack);
-	}
-	else
-	{
-		if (head->next->index == min)
+		else if (((*stack)->index > ((*stack)->next->index)) && ((*stack)->index > (*stack)->next->next->index))
 			ra(stack);
 		else
-		{
-			sa(stack);
 			rra(stack);
-		}
 	}
 }
 
@@ -68,20 +45,19 @@ void	sort_4(t_lst **stacka, t_lst **stackb)
 {
 	int	distance;
 
-	if (is_sorted(stacka))
-		return ;
-	distance = get_distance(stacka, get_min(stacka, -1));
-	if (distance == 1)
-		ra(stacka);
-	else if (distance == 2)
+	if (is_sorted(stacka) != 1)
 	{
-		ra(stacka);
-		ra(stacka);
+		distance = get_distance(stacka, get_min(stacka));
+		if (distance == 1)
+			ra(stacka);
+		else if (distance == 2)
+		{
+			ra(stacka);
+			ra(stacka);
+		}
+		else if (distance == 3)
+			rra(stacka);
 	}
-	else if (distance == 3)
-		rra(stacka);
-	if (is_sorted(stacka))
-		return ;
 	pb(stacka,stackb);
 	sort_3(stacka);
 	pa(stacka, stackb);
@@ -91,25 +67,24 @@ void	sort_5(t_lst **stacka, t_lst **stackb)
 {
 	int	distance;
 
-	if (is_sorted(stacka))
-		return ;
-	distance = get_distance(stacka, get_min(stacka, -1));
-	if (distance == 1)
-		ra(stacka);
-	else if (distance == 2)
+	if (is_sorted(stacka) == 0)
 	{
-		ra(stacka);
-		ra(stacka);
+		distance = get_distance(stacka, get_min(stacka));
+		if (distance == 1)
+			ra(stacka);
+		else if (distance == 2)
+		{
+			ra(stacka);
+			ra(stacka);
+		}
+		else if(distance == 3)
+		{
+			rra(stacka);
+			rra(stacka);
+		}
+		else if (distance == 4)
+			rra(stacka);
 	}
-	else if(distance == 3)
-	{
-		rra(stacka);
-		rra(stacka);
-	}
-	else if (distance == 4)
-		rra(stacka);
-	if (is_sorted(stacka))
-		return ;
 	pb(stacka, stackb);
 	sort_4(stacka, stackb);
 	pa(stacka, stackb);

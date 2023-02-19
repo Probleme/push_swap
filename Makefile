@@ -8,7 +8,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
 SRCS = 	push_swap.c index.c check_args.c\
-		ft_atoi.c ft_isdigit.c ft_putchar_fd.c ft_split.c t_list.c utils.c\
+		ft_atoi.c ft_putchar_fd.c ft_split.c t_list.c utils.c\
 		simple_sort.c sort.c\
 		push.c rotate.c reverse.c swap.c\
 

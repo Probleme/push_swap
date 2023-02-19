@@ -15,25 +15,24 @@
 t_lst   *get_next_min(t_lst **stack)
 {
 	t_lst   *head;
-	t_lst   *min;
-	int     has_min;
+	t_lst   *min_lst;
+	// int     min;
 
-	has_min = 0;
-	min = NULL;
+	if (!*stack)
+		return NULL;
+	// min = 0;
+	min_lst = NULL;
 	head = *stack;
-	if (head)
+	while(head)
 	{
-		while(head)
+		if ((head->index == -1) && (min_lst == NULL || head->content < min_lst->content))
 		{
-			if ((head->index == -1) && (!has_min || head->content < min->content))
-			{
-				min = head;
-				has_min = 1;	
-			}
-			head = head->next;
+			min_lst = head;
+			// min = 1;
 		}
+		head = head->next;
 	}
-	return (min);
+	return (min_lst);
 }
 
 void    index_stack(t_lst **stack)
@@ -48,5 +47,4 @@ void    index_stack(t_lst **stack)
 		head->index = i++;
 		head = get_next_min(stack);
 	}
-	
 }

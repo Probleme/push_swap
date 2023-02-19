@@ -34,7 +34,7 @@ int ft_isnum(char *num)
 
 		if (num[i] == '-')
 			i++;
-        if (!ft_isdigit(num[i]))
+        if (num[i] >= '0' && num[i] <= '9')
             return (0);
         i++;
     }
@@ -56,7 +56,7 @@ int	ft_check_args(int argc, char **argv)
 		tmp = ft_atoi(args[i]);
 		if (tmp < -2147483648 || tmp > 2147483647)
 			return (ft_error("ERROR"));
-		if (!ft_isnum(args[i]))
+		if (ft_isnum(args[i]) == 1)
 			return (ft_error("ERROR"));
 		if (ft_doubles(args, tmp, i))
 			return (ft_error("ERROR"));

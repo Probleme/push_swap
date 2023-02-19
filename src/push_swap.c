@@ -61,5 +61,6 @@ int main(int argc, char **argv)
 	if (is_sorted(&stacka))
 		return (0);
 	sort_stack(&stacka, &stackb);
+	printtlst(stacka);
 	return 0;
 }
