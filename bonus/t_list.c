@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 03:16:37 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 02:37:06 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 02:47:55 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@ t_lst	*ft_newlst(int content)
 	new->content = content;
 	new->next = NULL;
 	return (new);
-}
-
-void	ft_lstadd_front(t_lst **stack, t_lst *list)
-{
-	list->next = *stack;
-	*stack = list;
 }
 
 t_lst	*ft_lstlast(t_lst *stack)

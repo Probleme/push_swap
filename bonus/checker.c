@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 02:37:34 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 04:06:40 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,40 @@ void	stack_new(t_lst **stack, char **argv, int argc)
 		ft_free(args);
 }
 
+void	free_nodes(t_lst *stack)
+{
+	t_lst	*tmp;
+
+	tmp = stack;
+	while (stack)
+	{
+		tmp = stack;
+		free(tmp);
+		stack = stack->next;
+	}
+}
+
+void	check_print(t_lst **stacka, t_lst **stackb)
+{
+	t_lst	*tmp;
+	int		size;
+
+	tmp = *stacka;
+	size = ft_lstsize(*stacka);
+	if (is_sorted(stacka) && ft_lstsize(*stacka) == size)
+		ft_putendl_fd("OK\n", 1);
+	else
+		ft_putendl_fd("KO\n", 1);
+	free_nodes(*stacka);
+	if (stackb)
+		free_nodes(*stackb);
+}
+
 int	main(int argc, char **argv)
 {
 	t_lst	*stacka;
 	t_lst	*stackb;
 	char	*line;
-	int		size;
 
 	if (argc == 2)
 		return (0);
@@ -82,20 +110,11 @@ int	main(int argc, char **argv)
 	if (ft_check_args(argc, argv) == 0)
 		return (0);
 	stack_new(&stacka, argv, argc);
-	size = ft_lstsize(stacka);
 	while (get_next_line(0, &line))
 	{
 		check(&stacka, &stackb, line);
 		free(line);
 	}
-	if (is_sorted(&stacka) && ft_lstsize(stacka) == size)
-		ft_putendl_fd("OK\n", 1);
-	else
-		ft_putendl_fd("KO\n", 1);
-	while (stacka)
-	{
-		printf("%d ", stacka->content);
-		stacka = stacka->next;
-	}
+	check_print(&stacka, &stackb);
 	return (0);
 }
