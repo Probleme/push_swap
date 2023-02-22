@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 00:58:08 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/13 01:31:02 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 02:07:26 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	find_largest_num(t_lst *stack)
 {
-	int max = stack->index;
+	int	max;
 
+	max = stack->index;
 	stack = stack->next;
 	while (stack != NULL)
 	{
@@ -23,15 +24,18 @@ int	find_largest_num(t_lst *stack)
 			max = stack->index;
 		stack = stack->next;
 	}
-	return max;
+	return (max);
 }
 
 int	find_position(t_lst *stack)
 {
-	int	pos = -1;
-	int lenght = 0;
-	int	max = stack->index;
+	int	pos;
+	int	lenght;
+	int	max;
 
+	pos = -1;
+	lenght = 0;
+	max = stack->index;
 	stack = stack->next;
 	while (stack != NULL)
 	{
@@ -44,21 +48,15 @@ int	find_position(t_lst *stack)
 		lenght++;
 	}
 	if (pos < lenght / 2)
-		return 0;
+		return (0);
 	else
-		return 1;
+		return (1);
 }
 
-int	isTop(t_lst *head, t_lst *node) {
-    if (head == node)
-        return 1;
-    return 0;
-}
-
-void	sort_1(t_lst **stacka, t_lst **stackb)
+void	sort(t_lst **stacka, t_lst **stackb)
 {
-	int pos;
-	int max;
+	int	pos;
+	int	max;
 
 	pos = 0;
 	max = 0;
@@ -68,29 +66,24 @@ void	sort_1(t_lst **stacka, t_lst **stackb)
 		pos = find_position(*stackb);
 		if (pos == 0)
 		{
-			if (max == (*stackb)->index && isTop(*stackb, *stackb) == 1)
-				pa(stacka,stackb);
+			if (max == (*stackb)->index && istop(*stackb, *stackb) == 1)
+				pa(stacka, stackb);
 			else
 				rb(stackb);
 		}
 		else if (pos == 1)
-		{
-			if (max == (*stackb)->index && isTop(*stackb, *stackb) == 1)
-				pa(stacka,stackb);
-			else
-				rrb(stackb);
-		}
+			rrb(stackb);
 	}
 }
 
-void	sort(t_lst **stacka, t_lst **stackb)
+void	sort_100(t_lst **stacka, t_lst **stackb)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 19;
-	while((*stacka))
+	while ((*stacka))
 	{
 		if ((*stacka)->index <= i)
 		{
@@ -106,5 +99,31 @@ void	sort(t_lst **stacka, t_lst **stackb)
 		else
 			ra(stacka);
 	}
-	sort_1(stacka,stackb);
+	sort(stacka, stackb);
+}
+
+void	sort_500(t_lst **stacka, t_lst **stackb)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 37;
+	while ((*stacka))
+	{
+		if ((*stacka)->index <= i)
+		{
+			pb(stacka, stackb);
+			i++;
+		}
+		else if ((*stacka)->index <= i + j)
+		{
+			pb(stacka, stackb);
+			rb(stackb);
+			i++;
+		}
+		else
+			ra(stacka);
+	}
+	sort(stacka, stackb);
 }

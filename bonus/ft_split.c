@@ -6,11 +6,11 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:25:26 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 01:27:21 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 00:44:29 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
 static size_t	word_count(const char *s, char c)
 {

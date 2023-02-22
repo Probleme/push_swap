@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:04:29 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/13 00:57:12 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/20 23:39:11 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_min(t_lst **stack)
 
 	head = *stack;
 	min = head->index;
-	while(head->next)
+	while (head->next)
 	{
 		head = head->next;
 		if ((head->index < min) && (head->index != -1))
@@ -32,9 +32,11 @@ void	sort_3(t_lst **stack)
 {
 	while (is_sorted(stack) != 1)
 	{
-		if (((*stack)->index > (*stack)->next->index) && ((*stack)->index < (*stack)->next->next->index))
+		if (((*stack)->index > (*stack)->next->index)
+			&& ((*stack)->index < (*stack)->next->next->index))
 			sa(stack);
-		else if (((*stack)->index > ((*stack)->next->index)) && ((*stack)->index > (*stack)->next->next->index))
+		else if (((*stack)->index > ((*stack)->next->index))
+			&& ((*stack)->index > (*stack)->next->next->index))
 			ra(stack);
 		else
 			rra(stack);
@@ -58,7 +60,7 @@ void	sort_4(t_lst **stacka, t_lst **stackb)
 		else if (distance == 3)
 			rra(stacka);
 	}
-	pb(stacka,stackb);
+	pb(stacka, stackb);
 	sort_3(stacka);
 	pa(stacka, stackb);
 }
@@ -77,7 +79,7 @@ void	sort_5(t_lst **stacka, t_lst **stackb)
 			ra(stacka);
 			ra(stacka);
 		}
-		else if(distance == 3)
+		else if (distance == 3)
 		{
 			rra(stacka);
 			rra(stacka);
@@ -94,7 +96,8 @@ void	simple_sort(t_lst **stacka, t_lst **stackb)
 {
 	int	size;
 
-	if (is_sorted(stacka) || ft_lstsize(*stacka) == 0 || ft_lstsize(*stacka) == 1)
+	if (is_sorted(stacka) || ft_lstsize(*stacka) == 0
+		|| ft_lstsize(*stacka) == 1)
 		return ;
 	size = ft_lstsize(*stacka);
 	if (size == 2)

@@ -6,11 +6,11 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 03:16:37 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/21 03:03:21 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 02:37:06 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
 t_lst	*ft_newlst(int content)
 {
@@ -20,7 +20,6 @@ t_lst	*ft_newlst(int content)
 	if (!new)
 		return (NULL);
 	new->content = content;
-	new->index = -1;
 	new->next = NULL;
 	return (new);
 }
@@ -45,17 +44,17 @@ t_lst	*ft_lstlast(t_lst *stack)
 	return (tmp);
 }
 
-void	ft_lstadd_back(t_lst **stack, t_lst *new)
+void	ft_lstadd_back(t_lst **stack, t_lst *new_l)
 {
 	t_lst	*tmp;
 
 	if (!*stack)
 	{
-		*stack = new;
+		*stack = new_l;
 		return ;
 	}
 	tmp = ft_lstlast(*stack);
-	tmp->next = new;
+	tmp->next = new_l;
 }
 
 int	ft_lstsize(t_lst *stack)

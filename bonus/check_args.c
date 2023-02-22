@@ -6,11 +6,11 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 21:35:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/21 02:55:26 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 01:27:12 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
 static int	ft_doubles(char **argv, int tmp, int i)
 {

@@ -6,18 +6,17 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:45:12 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/21 02:44:16 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 02:36:48 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
 int	swap(t_lst **stack)
 {
 	t_lst	*head;
 	t_lst	*tmp;
 	int		content;
-	int		index;
 
 	if (ft_lstsize(*stack) < 2)
 		return (1);
@@ -26,27 +25,8 @@ int	swap(t_lst **stack)
 	if (!head && !tmp)
 		ft_error("Error swapping");
 	content = head->content;
-	index = head->index;
 	head->content = tmp->content;
-	head->index = tmp->index;
 	tmp->content = content;
-	tmp->index = index;
-	return (0);
-}
-
-int	sa(t_lst **stack)
-{
-	if (swap(stack) == 1)
-		return (1);
-	ft_putendl_fd("sa", 1);
-	return (0);
-}
-
-int	sb(t_lst **stack)
-{
-	if (swap(stack) == 1)
-		return (1);
-	ft_putendl_fd("sb", 1);
 	return (0);
 }
 
@@ -56,6 +36,5 @@ int	ss(t_lst **stacka, t_lst **stackb)
 		return (1);
 	swap(stacka);
 	swap(stackb);
-	ft_putendl_fd("ss", 1);
 	return (0);
 }

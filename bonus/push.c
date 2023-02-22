@@ -6,11 +6,11 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 22:18:01 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/21 02:40:08 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 02:26:33 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
 int	push(t_lst **stacka, t_lst **stackb)
 {
@@ -36,21 +36,5 @@ int	push(t_lst **stacka, t_lst **stackb)
 		tmp->next = heada;
 		*stacka = tmp;
 	}
-	return (0);
-}
-
-int	pa(t_lst **stacka, t_lst **stackb)
-{
-	if (push(stacka, stackb) == 1)
-		return (0);
-	ft_putendl_fd("pa", 1);
-	return (0);
-}
-
-int	pb(t_lst **stacka, t_lst **stackb)
-{
-	if (push(stackb, stacka) == 1)
-		return (0);
-	ft_putendl_fd("pb", 1);
 	return (0);
 }
