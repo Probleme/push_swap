@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 04:06:40 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/22 06:02:29 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check(t_lst **stacka, t_lst **stackb, char *line)
 	else if (!ft_strcmp(line, "rrr\n"))
 		rrr(stacka, stackb);
 	else
-		exit(write(1, "Error!", 6));
+		exit(ft_error("Error"));
 	return (0);
 }
 
@@ -89,9 +89,9 @@ void	check_print(t_lst **stacka, t_lst **stackb)
 	tmp = *stacka;
 	size = ft_lstsize(*stacka);
 	if (is_sorted(stacka) && ft_lstsize(*stacka) == size)
-		ft_putendl_fd("OK\n", 1);
+		ft_putendl_fd("OK", 1);
 	else
-		ft_putendl_fd("KO\n", 1);
+		ft_putendl_fd("KO", 1);
 	free_nodes(*stacka);
 	if (stackb)
 		free_nodes(*stackb);
@@ -107,7 +107,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stacka = NULL;
 	stackb = NULL;
-	if (ft_check_args(argc, argv) == 0)
+	if (!ft_check_args(argc, argv))
 		return (0);
 	stack_new(&stacka, argv, argc);
 	while (get_next_line(0, &line))
