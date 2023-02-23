@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 06:02:29 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/23 21:58:37 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main(int argc, char **argv)
 	t_lst	*stackb;
 	char	*line;
 
-	if (argc == 2)
+	if (argc < 2)
 		return (0);
 	stacka = NULL;
 	stackb = NULL;

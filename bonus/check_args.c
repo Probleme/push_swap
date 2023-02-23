@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 21:35:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 05:54:21 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/23 21:58:00 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_error(int argc, char **argv, int i)
 			return (ft_error("Error"));
 		if (tmp < -2147483648 || tmp > 2147483647)
 			return (ft_error("Error"));
-		if (ft_isnum(args[i]) == 1)
+		if (ft_isnum(args[i]))
 			return (ft_error("Error"));
 		i++;
 	}
@@ -67,7 +67,6 @@ int	ft_check_args(int argc, char **argv)
 	int		i;
 	char	**args;
 
-	i = 1;
 	if (argc == 2)
 	{
 		args = ft_split(argv[1], ' ');
