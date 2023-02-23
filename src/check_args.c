@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 21:35:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 06:18:17 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/23 21:45:29 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
-	while(num[i])
-		i++;
 	while (num[i])
 	{
-		// if (num[i] == '-')
-		// 	i++;
+		if (num[i] == '-')
+			i++;
 		if (num[i] >= '0' && num[i] <= '9')
 			return (0);
 		i++;
@@ -55,7 +53,7 @@ int	check_error(int argc, char **argv, int i)
 			return (ft_error("Error"));
 		if (tmp < -2147483648 || tmp > 2147483647)
 			return (ft_error("Error"));
-		if (!ft_isnum(args[i]))
+		if (ft_isnum(args[i]))
 			return (ft_error("Error"));
 		i++;
 	}
