@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 03:16:37 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 02:47:55 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 02:43:17 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_lst	*ft_newlst(int content)
 {
 	t_lst	*new;
 
-	new = malloc(sizeof(*new));
+	new = malloc(sizeof(t_lst));
 	if (!new)
 		return (NULL);
 	new->content = content;

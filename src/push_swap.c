@@ -6,13 +6,13 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 02:30:02 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 23:57:56 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 03:19:00 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	stack_new(t_lst **stack, char **argv, int argc)
+void	stack_new(t_lst **stack, char **argv)
 {
 	t_lst	*new;
 	char	**args;
@@ -20,13 +20,7 @@ void	stack_new(t_lst **stack, char **argv, int argc)
 
 	i = 0;
 	new = *stack;
-	if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
-	{
-		i = 1;
-		args = argv;
-	}
+	args = argv;
 	while (args[i])
 	{
 		new = ft_newlst(ft_atoi(args[i]));
@@ -34,8 +28,6 @@ void	stack_new(t_lst **stack, char **argv, int argc)
 		i++;
 	}
 	index_stack(stack);
-	if (argc == 2)
-		ft_free(args);
 }
 
 void	sort_stack(t_lst **stacka, t_lst **stackb)
@@ -56,28 +48,37 @@ void	free_nodes(t_lst *stack)
 	while (stack)
 	{
 		tmp = stack;
-		free(tmp);
 		stack = stack->next;
+		free(tmp);
 	}
 }
+
 int	main(int argc, char **argv)
 {
 	t_lst	*stacka;
 	t_lst	*stackb;
+	char	**args;
 
 	if (argc < 2)
 		return (0);
-	if ((!ft_check_args(argc, argv)))
+	args = join_args(argc, argv);
+	if ((!check_error(args)))
 		return (0);
 	stacka = NULL;
 	stackb = NULL;
-	stack_new(&stacka, argv, argc);
+	stack_new(&stacka, args);
+	ft_free(args);
 	if (is_sorted(&stacka))
 	{
 		free_nodes(stacka);
 		return (0);
 	}
 	sort_stack(&stacka, &stackb);
+	while(stacka)
+	{
+		printf("%d", stacka->content);
+		stacka = stacka->next;
+	}
 	free_nodes(stacka);
 	return (0);
 }

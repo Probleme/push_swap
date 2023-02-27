@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 21:35:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/23 21:45:29 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 02:53:22 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	ft_isnum(char *num)
 	i = 0;
 	while (num[i])
 	{
-		if (num[i] == '-')
-			i++;
 		if (num[i] >= '0' && num[i] <= '9')
 			return (0);
 		i++;
@@ -40,12 +38,14 @@ int	ft_isnum(char *num)
 	return (1);
 }
 
-int	check_error(int argc, char **argv, int i)
+int	check_error(char **argv)
 {
 	long	tmp;
 	char	**args;
+	int		i;
 
 	args = argv;
+	i = 0;
 	while (args[i])
 	{
 		tmp = ft_atoi(args[i]);
@@ -57,27 +57,31 @@ int	check_error(int argc, char **argv, int i)
 			return (ft_error("Error"));
 		i++;
 	}
-	if (argc == 2)
-		ft_free(args);
 	return (1);
 }
 
-int	ft_check_args(int argc, char **argv)
+char	**join_args(int argc, char **argv)
 {
 	int		i;
 	char	**args;
+	char	*join;
+	char	*str;
 
-	if (argc == 2)
+	i = 1;
+	str = NULL;
+	if (argc > 1)
 	{
-		args = ft_split(argv[1], ' ');
-		i = 0;
+		while (argv[i])
+		{
+			if (argv[1][0] == 0 || (argv[1][0] == ' ' && argv[1][1] == 0))
+				exit(ft_error("Error"));
+			join = ft_strjoin(argv[i], " ");
+			str = ft_strjoin1(str, join);
+			free(join);
+			i++;
+		}
 	}
-	else
-	{
-		args = argv;
-		i = 1;
-	}
-	if (check_error(argc, args, i))
-		return (1);
-	return (0);
+	args = ft_split(str, ' ');
+	free(str);
+	return (args);
 }

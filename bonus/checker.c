@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/23 21:58:37 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 03:12:21 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check(t_lst **stacka, t_lst **stackb, char *line)
 	return (0);
 }
 
-void	stack_new(t_lst **stack, char **argv, int argc)
+void	stack_new(t_lst **stack, char **argv)
 {
 	t_lst	*new;
 	char	**args;
@@ -51,21 +51,13 @@ void	stack_new(t_lst **stack, char **argv, int argc)
 
 	i = 0;
 	new = *stack;
-	if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
-	{
-		i = 1;
-		args = argv;
-	}
+	args = argv;
 	while (args[i])
 	{
 		new = ft_newlst(ft_atoi(args[i]));
 		ft_lstadd_back(stack, new);
 		i++;
 	}
-	if (argc == 2)
-		ft_free(args);
 }
 
 void	free_nodes(t_lst *stack)
@@ -76,8 +68,8 @@ void	free_nodes(t_lst *stack)
 	while (stack)
 	{
 		tmp = stack;
-		free(tmp);
 		stack = stack->next;
+		free(tmp);
 	}
 }
 
@@ -102,14 +94,17 @@ int	main(int argc, char **argv)
 	t_lst	*stacka;
 	t_lst	*stackb;
 	char	*line;
+	char	**args;
 
 	if (argc < 2)
 		return (0);
+	args = join_args(argc, argv);
+	if (!check_error(args))
+		return (0);
 	stacka = NULL;
 	stackb = NULL;
-	if (!ft_check_args(argc, argv))
-		return (0);
-	stack_new(&stacka, argv, argc);
+	stack_new(&stacka, args);
+	ft_free(args);
 	while (get_next_line(0, &line))
 	{
 		check(&stacka, &stackb, line);

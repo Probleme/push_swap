@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 04:27:37 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 00:53:44 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 02:46:32 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	*ft_read_and_save(int fd, char *save)
 			return (NULL);
 		}
 		buffer[bytes] = '\0';
-		save = ft_strjoin(save, buffer);
+		save = ft_strjoin1(save, buffer);
 	}
 	free(buffer);
 	return (save);

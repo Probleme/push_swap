@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:45:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 02:33:41 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/26 23:31:09 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void			ft_lstadd_back(t_lst **stack, t_lst *liist);
 int				ft_lstsize(t_lst *stack);
 void			index_stack(t_lst **stack);
 int				istop(t_lst *head, t_lst *node);
+int	check_error(char **argv);
 
 void			simple_sort(t_lst **stacka, t_lst **stackb);
 void			sort_5(t_lst **stacka, t_lst **stackb);
@@ -42,7 +43,10 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+char			*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin1(char *s1, char *s2);
 char			**ft_split(char const *s, char c);
+size_t  ft_strlen(const char *s);
 
 int				sa(t_lst **stack);
 int				sb(t_lst **stack);
@@ -64,6 +68,6 @@ void			ft_free(char **str);
 int				is_sorted(t_lst **stack);
 int				get_distance(t_lst **stack, int index);
 
-int				ft_check_args(int argc, char **argv);
+char				**join_args(int argc, char **argv);
 
 #endif
