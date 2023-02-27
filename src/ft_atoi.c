@@ -6,26 +6,35 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 02:08:15 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/27 03:19:34 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 20:42:09 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	check_str(const char *str)
+void	check_str(char *str)
 {
 	int	i;
 
 	i = 1;
 	while (str[i])
 	{
-		if (str[i] == '-')
+		if (str[i] == '-' || str[i] == '+')
+			exit(ft_error("Error"));
+		i++;
+	}
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+			i++;
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			exit(ft_error("Error"));
 		i++;
 	}
 }
 
-long	ft_atoi(const char *str)
+long	ft_atoi(char *str)
 {
 	int					i;
 	unsigned long long	r;
