@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/27 20:46:58 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/02/27 20:52:58 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,6 @@ void	check_print(t_lst **stacka, t_lst **stackb)
 		free_nodes(*stackb);
 }
 
-void	func()
-{
-	system("leaks checker");
-}
 int	main(int argc, char **argv)
 {
 	t_lst	*stacka;
@@ -100,7 +96,6 @@ int	main(int argc, char **argv)
 	char	*line;
 	char	**args;
 
-	atexit(func);
 	if (argc < 2)
 		return (0);
 	args = join_args(argc, argv);
