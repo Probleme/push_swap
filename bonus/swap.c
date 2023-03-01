@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:45:12 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/22 02:36:48 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/01 18:56:52 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	swap(t_lst **stack)
 		return (1);
 	head = *stack;
 	tmp = head->next;
-	if (!head && !tmp)
-		ft_error("Error swapping");
 	content = head->content;
 	head->content = tmp->content;
 	tmp->content = content;
