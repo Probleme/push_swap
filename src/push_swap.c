@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 02:30:02 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/01 19:06:27 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/05 15:49:30 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 		return (0);
 	args = join_args(argc, argv);
 	if ((!check_error(args)))
-		return (0);
+		return (1);
 	stacka = NULL;
 	stackb = NULL;
 	stack_new(&stacka, args);

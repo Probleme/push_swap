@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 02:08:15 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/27 20:45:00 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/06 23:07:21 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	check_str(const char *str)
 	while (str[i])
 	{
 		if (str[i] == '-' || str[i] == '+')
-			exit(ft_error("Error"));
+		{
+			ft_error("Error");
+			exit(1);
+		}
 		i++;
 	}
 	i = 0;
@@ -29,7 +32,10 @@ void	check_str(const char *str)
 		if (str[i] == '-' || str[i] == '+')
 			i++;
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			exit(ft_error("Error"));
+		{
+			ft_error("Error");
+			exit(1);
+		}
 		i++;
 	}
 }

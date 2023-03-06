@@ -6,13 +6,13 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 22:24:11 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/01 19:01:29 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/01 23:49:20 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	i;
 

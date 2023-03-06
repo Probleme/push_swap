@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 22:51:04 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/06 22:57:57 by ataouaf          ###   ########.fr       */
+/*   Created: 2023/03/04 19:34:39 by ataouaf           #+#    #+#             */
+/*   Updated: 2023/03/06 22:59:36 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/push_swap_bonus.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+	return (c >= 48 && c <= 57);
 }

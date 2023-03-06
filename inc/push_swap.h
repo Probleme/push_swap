@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:45:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/27 20:31:12 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/06 22:58:06 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			ft_putnbr_fd(int n, int fd);
 char			*ft_strjoin(char *s1, char *s2);
 char			*ft_strjoin1(char *s1, char *s2);
 char			**ft_split(char const *s, char c);
-size_t			ft_strlen(const char *s);
+size_t			ft_strlen(char *s);
 
 int				sa(t_lst **stack);
 int				sb(t_lst **stack);
@@ -69,5 +69,8 @@ int				is_sorted(t_lst **stack);
 int				get_distance(t_lst **stack, int index);
 
 char			**join_args(int argc, char **argv);
+int				ft_isdigit(int c);
+void			check_str_error(char **argv);
+int				ft_strcmp(const char *s1, const char *s2);
 
 #endif

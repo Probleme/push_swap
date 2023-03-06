@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:39:32 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/02/27 20:01:13 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/06 22:59:57 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ void			ft_lstadd_back(t_lst **stack, t_lst *new_l);
 char			**ft_split(char const *s, char c);
 char			**join_args(int argc, char **argv);
 int				check_error(char **argv);
-
+int				ft_isdigit(int c);
 #endif 
