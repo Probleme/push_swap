@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:45:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/06 22:58:06 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/07 21:13:54 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ int				get_distance(t_lst **stack, int index);
 char			**join_args(int argc, char **argv);
 int				ft_isdigit(int c);
 void			check_str_error(char **argv);
-int				ft_strcmp(const char *s1, const char *s2);
 
 #endif

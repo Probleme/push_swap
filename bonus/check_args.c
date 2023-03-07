@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 21:35:24 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/06 23:00:32 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/07 21:12:36 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,21 @@ void	check_str_error(char **argv)
 	int	i;
 	int	j;
 	int	num_spc;
+	int	len;
 
 	i = 1;
-	num_spc = 0;
 	while (argv[i])
 	{
 		j = 0;
+		num_spc = 0;
+		len = ft_strlen(argv[i]);
 		while (argv[i][j])
 		{
 			if (argv[i][j] == ' ')
 				num_spc++;
 			j++;
 		}
-		if (ft_strcmp(argv[i], " ") == 0 || argv[i][0] == 0)
+		if (len == num_spc || argv[i][0] == 0)
 		{
 			ft_error("Error");
 			exit(1);

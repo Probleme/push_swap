@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/06 23:01:44 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/07 20:52:16 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,18 @@ void	check_print(t_lst **stacka, t_lst **stackb)
 
 	tmp = *stacka;
 	size = ft_lstsize(*stacka);
+	if (*stackb)
+	{
+		ft_putendl_fd("KO", 1);
+		free_nodes(*stackb);
+		free_nodes(*stacka);
+		exit(1);
+	}
 	if (is_sorted(stacka) && ft_lstsize(*stacka) == size)
 		ft_putendl_fd("OK", 1);
 	else
 		ft_putendl_fd("KO", 1);
 	free_nodes(*stacka);
-	if (stackb)
-		free_nodes(*stackb);
 }
 
 int	main(int argc, char **argv)
@@ -100,7 +105,7 @@ int	main(int argc, char **argv)
 		return (0);
 	args = join_args(argc, argv);
 	if (!check_error(args))
-		return (0);
+		return (1);
 	stacka = NULL;
 	stackb = NULL;
 	stack_new(&stacka, args);
