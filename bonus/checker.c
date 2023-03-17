@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 00:18:50 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/07 20:52:16 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/10 16:35:49 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,10 @@ int	main(int argc, char **argv)
 		return (0);
 	args = join_args(argc, argv);
 	if (!check_error(args))
+	{
+		ft_free(args);
 		return (1);
+	}
 	stacka = NULL;
 	stackb = NULL;
 	stack_new(&stacka, args);

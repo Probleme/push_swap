@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 02:30:02 by ataouaf           #+#    #+#             */
-/*   Updated: 2023/03/07 20:46:12 by ataouaf          ###   ########.fr       */
+/*   Updated: 2023/03/11 20:37:23 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	free_nodes(t_lst *stack)
 	}
 }
 
-int	main(int argc, char **argv)
+int leak(int argc, char **argv)
 {
+	
 	t_lst	*stacka;
 	t_lst	*stackb;
 	char	**args;
@@ -63,7 +64,10 @@ int	main(int argc, char **argv)
 		return (0);
 	args = join_args(argc, argv);
 	if ((!check_error(args)))
+	{
+		ft_free(args);
 		return (1);
+	}
 	stacka = NULL;
 	stackb = NULL;
 	stack_new(&stacka, args);
@@ -77,3 +81,10 @@ int	main(int argc, char **argv)
 	free_nodes(stacka);
 	return (0);
 }
+
+int	main(int argc, char **argv)
+{
+	leak(argc, argv);
+	system("leaks push_swap");
+}
+
